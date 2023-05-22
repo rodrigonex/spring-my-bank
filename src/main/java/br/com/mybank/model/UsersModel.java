@@ -3,7 +3,6 @@ package br.com.mybank.model;
 import java.util.UUID;
 
 import org.hibernate.annotations.GenericGenerator;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,14 +19,31 @@ public class UsersModel {
     private UUID id;
     @Column(name = "email", nullable = false)
     private String email;
-    @Column(name = "password", nullable = false)
-    private String password;
     private String address;
     private String phone;
     @Column(name = "rg", unique = true)
     private String rg;
     @Column(name = "cpf", unique = true)
     private String cpf;
+    private String name;
+    @Column(name = "password", nullable = false)
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getCpf() {
         return cpf;
@@ -59,14 +75,6 @@ public class UsersModel {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public UUID getId() {
